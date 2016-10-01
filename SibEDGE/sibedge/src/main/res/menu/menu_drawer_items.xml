@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_drawer_list"
+            android:checked="true"
+            android:icon="@drawable/ic_list_black_24dp"
+            android:title="@string/menu_drawer_list"
+            />
+        <item
+            android:id="@+id/menu_drawer_scaling"
+            android:checked="false"
+            android:icon="@drawable/ic_image_black_24dp"
+            android:title="@string/menu_drawer_scaling"
+            />
+        <item
+            android:id="@+id/menu_drawer_service"
+            android:checked="false"
+            android:icon="@drawable/ic_settings_system_daydream_black_24dp"
+            android:title="@string/menu_drawer_service"
+            />
+        <item
+            android:id="@+id/menu_drawer_map"
+            android:checked="false"
+            android:icon="@drawable/ic_map_black_24dp"
+            android:title="@string/menu_drawer_map"
+            />
+    </group>
+</menu>

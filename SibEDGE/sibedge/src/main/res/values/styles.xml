@@ -1,0 +1,41 @@
+<resources>
+
+    <attr name="toolbarTheme" format="reference" />
+
+    <!-- Base custom theme -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="toolbarStyle">@style/Widget.SibEdgeTheme.Toolbar.Light</item>
+        <item name="toolbarTheme">@style/ThemeOverlay.SibEdgeTheme.ActionBar.Light</item>
+    </style>
+
+    <style name="AppTheme" parent="AppTheme.Base"></style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Widget.SibEdgeTheme.Toolbar.Light" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="ThemeOverlay.SibEdgeTheme.ActionBar.Light" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/toolbar_text_light</item>
+        <item name="android:textColorPrimary">@color/toolbar_text_light</item>
+    </style>
+
+    <style name="Fab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="borderWidth">0dp</item>
+        <item name="elevation">6dp</item>
+        <item name="pressedTranslationZ">12dp</item>
+        <item name="rippleColor">@android:color/white</item>
+    </style>
+
+</resources>

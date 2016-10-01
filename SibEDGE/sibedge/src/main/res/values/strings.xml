@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">SibEDGE</string>
+    <string name="package_name">com.acukanov.sibedge</string>
+
+    <string name="res_menu_drawer_open">Drawer opened</string>
+    <string name="res_menu_drawer_close">Drawer closed</string>
+    <string name="menu_drawer_list">List</string>
+    <string name="menu_drawer_scaling">Scaling</string>
+    <string name="menu_drawer_service">Service</string>
+    <string name="menu_drawer_map">Map</string>
+
+    <string name="context_menu_edit">@string/edit</string>
+    <string name="context_menu_delete">@string/delete</string>
+
+    <string name="text_user_name">User Name</string>
+    <string name="text_lorem_ipsum_long">Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </string>
+    <string name="text_lorem_ipsum_short">Lorem ipsum</string>
+    <string name="text_hint_new_item">Enter new item text here</string>
+
+    <string name="btn_save">Save</string>
+    <string name="btn_done">@string/done</string>
+    <string name="btn_revert">@string/revert</string>
+
+    <string name="dialog_action_ok">@string/ok</string>
+    <string name="dialog_action_cancel">@string/cancel</string>
+    <string name="dialog_error_title">Sorry</string>
+    <string name="dialog_title_change_item">Change item</string>
+    <string name="dialog_message_text_epmty">Can\'t create new item. Please, enter corrext text</string>
+
+    <string name="text_menu_add">Add</string>
+
+    <string name="ok">Ok</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+    <string name="text_continue">Continue</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="back">Back</string>
+    <string name="enable">Enable</string>
+    <string name="disable">Disable</string>
+    <string name="done">Done</string>
+    <string name="revert">Revert</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+</resources>
