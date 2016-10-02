@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">SibEDGE</string>
+    <string name="package_name">com.acukanov.sibedge</string>
+
+    <string name="res_menu_drawer_open">Меню открыто</string>
+    <string name="res_menu_drawer_close">Меню закрыто</string>
+    <string name="menu_drawer_list">List</string>
+    <string name="menu_drawer_scaling">Scaling</string>
+    <string name="menu_drawer_service">Service</string>
+    <string name="menu_drawer_map">Map</string>
+
+    <string name="context_menu_edit">@string/edit</string>
+    <string name="context_menu_delete">@string/delete</string>
+
+    <string name="text_user_name">Имя пользователя</string>
+    <string name="text_lorem_ipsum_long">
+        Здесь должен быть очнеь длинный текст про вкуснейшие булки и чай,
+        но почему-то все ресурсы ограничиваются переводом только первого предложения:
+        "Съешь ещё этих мягких французских булок, да выпей же чаю". Так ограничимся и мы.
+    </string>
+    <string name="text_lorem_ipsum_short">Ешь булки!</string>
+    <string name="text_sample_date">01.01.2000</string>
+    <string name="text_hint_new_item">Введите новый текст</string>
+
+    <string name="btn_save">Сохранить</string>
+    <string name="btn_done">@string/done</string>
+    <string name="btn_revert">@string/revert</string>
+
+    <string name="dialog_action_ok">@string/ok</string>
+    <string name="dialog_action_cancel">@string/cancel</string>
+    <string name="dialog_error_title">Простите</string>
+    <string name="dialog_title_change_item">Изменить элемент</string>
+    <string name="dialog_message_text_epmty">Невозможно создать новый элемент. Введите корректный текст.</string>
+    <string name="dialog_title_camera_permission_error">Ошибка при запуске камеры</string>
+    <string name="dialog_message_camera_permission_forbidden">Вы запретили приложению использовать камеру устройства.</string>
+    <string name="dialog_message_internet_permission_error">
+        Неудается получить информацию. Вам необходимо одобрить разрешение на интернет-запросы.
+    </string>
+
+    <string name="dialog_title_location_permission">Ошибка получения координат.</string>
+    <string name="dialog_message_location_premission">
+        Чтобы продолжить работу, одобрите разрешение на получение координат.
+    </string>
+    <string name="dialog_title_gps_disabled">GPS отключен</string>
+    <string name="dialog_message_gps">Пожалуйста, включите GPS чтобы получить координаты.</string>
+    <string name="dialog_title_internet_disabled">Отключено интернет соединение</string>
+    <string name="dialog_message_internet">Пожалуйста, включите интернет, чтобы продолжить читать смешные шутки.</string>
+
+    <string name="text_menu_add">Добавить</string>
+
+    <string name="ok">Ок</string>
+    <string name="no">Нет</string>
+    <string name="cancel">Отмена</string>
+    <string name="text_continue">Продолжить</string>
+    <string name="next">Следующий</string>
+    <string name="previous">Предыдущий</string>
+    <string name="back">Назад</string>
+    <string name="enable">Включить</string>
+    <string name="disable">Отключить</string>
+    <string name="done">Готово</string>
+    <string name="revert">Отменить</string>
+    <string name="delete">Удалить</string>
+    <string name="edit">Редактировать</string>
+</resources>

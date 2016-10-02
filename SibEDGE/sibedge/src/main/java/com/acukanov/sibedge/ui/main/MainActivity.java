@@ -3,6 +3,8 @@ package com.acukanov.sibedge.ui.main;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -11,10 +13,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.acukanov.sibedge.R;
+import com.acukanov.sibedge.data.preferences.LocalePreferenceManager;
 import com.acukanov.sibedge.ui.base.BaseActivity;
 import com.acukanov.sibedge.ui.list.general.ListFragment;
 import com.acukanov.sibedge.ui.map.GeoMapFragment;
@@ -23,6 +30,8 @@ import com.acukanov.sibedge.ui.service.ServiceFragment;
 import com.acukanov.sibedge.utils.ActivityCommon;
 import com.acukanov.sibedge.utils.LogUtils;
 import com.acukanov.sibedge.utils.PermissionsUtils;
+
+import java.util.Locale;
 
 import javax.inject.Inject;
 
@@ -34,6 +43,7 @@ public class MainActivity extends BaseActivity implements IMainView {
     public static final String INSTANCE_STATE_FRAGMENT_KEY = "instance_state_fragment_key";
     private static final int REQUEST_CODE_PERMISSIONS = 0;
     @Inject MainPresenter mMainPresenter;
+    @Inject LocalePreferenceManager mLocaleManager;
     @InjectView(R.id.toolbar) Toolbar mToolbar;
     @InjectView(R.id.navigation_view) NavigationView mNavigationView;
     @InjectView(R.id.drawer) DrawerLayout mDrawerLayout;
@@ -46,6 +56,7 @@ public class MainActivity extends BaseActivity implements IMainView {
     };
     private Fragment mFragment = null;
     private FragmentManager mFragmentManager;
+    private Locale mLocale;
 
     public static void startActivity(Activity activity, Fragment fragment) {
         Intent intent = new Intent(activity, MainActivity.class);
@@ -58,12 +69,40 @@ public class MainActivity extends BaseActivity implements IMainView {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main_activity_language, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item_language:
+                if (mLocaleManager.getLocale().equals("en")) {
+                    setLocale("ru");
+                    mLocaleManager.setLocale("ru");
+                } else {
+                    setLocale("en");
+                    mLocaleManager.setLocale("en");
+                }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityComponent().inject(this);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
         mMainPresenter.attachView(this);
+        if (mLocaleManager.getLocale() == null) {
+            setLocale("en");
+            mLocaleManager.setLocale("en");
+        }
 
         setSupportActionBar(mToolbar);
         ActivityCommon.setHomeAsUp(this);
@@ -174,5 +213,17 @@ public class MainActivity extends BaseActivity implements IMainView {
                     .replace(R.id.main_content, fragment)
                     .commit();
         }
+    }
+
+    private void setLocale(String locale) {
+        mLocale = new Locale(locale);
+        Resources resource = getResources();
+        DisplayMetrics dm = resource.getDisplayMetrics();
+        Configuration conf = resource.getConfiguration();
+        conf.locale = mLocale;
+        resource.updateConfiguration(conf, dm);
+        Intent localeIntent = new Intent(this, MainActivity.class);
+        localeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(localeIntent);
     }
 }

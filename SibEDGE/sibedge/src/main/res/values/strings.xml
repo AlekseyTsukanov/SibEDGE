@@ -52,6 +52,7 @@
     <string name="dialog_message_internet">Please, enable internet to continue fetch funny jokes</string>
 
     <string name="text_menu_add">Add</string>
+    <string name="text_menu_language">Choose language</string>
 
     <string name="ok">Ok</string>
     <string name="no">No</string>

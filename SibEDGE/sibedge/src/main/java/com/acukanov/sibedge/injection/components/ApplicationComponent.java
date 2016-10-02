@@ -6,6 +6,7 @@ import android.content.Context;
 
 import com.acukanov.sibedge.SibEdgeApplication;
 import com.acukanov.sibedge.data.database.DatabaseHelper;
+import com.acukanov.sibedge.data.preferences.LocalePreferenceManager;
 import com.acukanov.sibedge.injection.annotations.ApplicationContext;
 import com.acukanov.sibedge.injection.modules.ApplicationModule;
 import com.acukanov.sibedge.service.GpsStateReceiver;
@@ -28,4 +29,5 @@ public interface ApplicationComponent {
     Context context();
     Application application();
     DatabaseHelper databaseHelper();
+    LocalePreferenceManager localePreferenceManager();
 }
