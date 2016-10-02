@@ -8,6 +8,7 @@ import com.acukanov.sibedge.ui.list.general.ListFragment;
 import com.acukanov.sibedge.ui.main.MainActivity;
 import com.acukanov.sibedge.ui.scaling.browse.ScalingFragment;
 import com.acukanov.sibedge.ui.scaling.general.PickerFragment;
+import com.acukanov.sibedge.ui.service.ServiceFragment;
 
 import dagger.Component;
 
@@ -22,4 +23,5 @@ public interface ActivityComponent {
     void inject(PickerFragment scalingFragment);
     void inject(CreateItemFragment createItemFragment);
     void inject(ScalingFragment browseImageFragment);
+    void inject(ServiceFragment serviceFragment);
 }

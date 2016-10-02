@@ -25,8 +25,7 @@
         sunt in culpa qui officia deserunt mollit anim id est laborum.
     </string>
     <string name="text_lorem_ipsum_short">Lorem ipsum</string>
-    <string name="text_permission_camera_forbided">You have forbid camera permission</string>
-    <string name="text_camera_permission_error">Error starting camera</string>
+    <string name="text_sample_date">01.01.2000</string>
     <string name="text_hint_new_item">Enter new item text here</string>
 
     <string name="btn_save">Save</string>
@@ -37,7 +36,10 @@
     <string name="dialog_action_cancel">@string/cancel</string>
     <string name="dialog_error_title">Sorry</string>
     <string name="dialog_title_change_item">Change item</string>
-    <string name="dialog_message_text_epmty">Can\'t create new item. Please, enter corrext text</string>
+    <string name="dialog_message_text_epmty">Can\'t create new item. Please, enter correct text</string>
+    <string name="dialog_title_camera_permission_error">Error starting camera</string>
+    <string name="dialog_message_camera_permission_forbidden">You have forbid camera permission</string>
+    <string name="dialog_message_internet_permission_error">Can\'t start fetching remote data. You need to grant internet permission</string>
 
     <string name="text_menu_add">Add</string>
 

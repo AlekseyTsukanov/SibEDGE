@@ -122,8 +122,8 @@ public class PickerFragment extends BaseFragment implements IPickerView, View.On
                     mPhotoPath = mPickerPresenter.takePhoto(mActivity, this, REQUEST_CAMERA);
                 } else {
                     DialogFactory.createSimpleOkErrorDialog(mActivity,
-                            R.string.text_camera_permission_error,
-                            R.string.text_permission_camera_forbided).show();
+                            R.string.dialog_title_camera_permission_error,
+                            R.string.dialog_message_camera_permission_forbidden).show();
                 }
                 break;
             default:

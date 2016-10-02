@@ -10,6 +10,7 @@
 
     <dimen name="fragment_margin">10dp</dimen>
     <dimen name="list_item_margin">@dimen/fragment_margin</dimen>
+    <dimen name="date_margin">5dp</dimen>
 
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_size">14sp</dimen>

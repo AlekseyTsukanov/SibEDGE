@@ -3,6 +3,9 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 
 android {
+    def SERVER_URL_FIELD_TYPE = "String"
+    def SERVER_URL_FIELD_NAME = "SERVER_URL"
+
     compileSdkVersion versions.compileVersion
     buildToolsVersion versions.buildToolsVersion
     defaultConfig {
@@ -12,6 +15,8 @@ android {
         versionCode versions.versionCode
         versionName versions.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField SERVER_URL_FIELD_TYPE, SERVER_URL_FIELD_NAME, "\"http://storage.space-o.ru/testXmlFeed.xml\""
     }
 
     signingConfigs {

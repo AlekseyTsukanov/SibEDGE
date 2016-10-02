@@ -47,7 +47,7 @@ public class ListFragmentAdapter extends RecyclerView.Adapter<ListFragmentAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(mActivity).inflate(R.layout.list_item_list, parent, false));
+        return new ViewHolder(LayoutInflater.from(mActivity).inflate(R.layout.list_item_list_fragment, parent, false));
     }
 
     @Override

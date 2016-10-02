@@ -18,6 +18,7 @@ import com.acukanov.sibedge.R;
 import com.acukanov.sibedge.ui.base.BaseActivity;
 import com.acukanov.sibedge.ui.list.general.ListFragment;
 import com.acukanov.sibedge.ui.scaling.general.PickerFragment;
+import com.acukanov.sibedge.ui.service.ServiceFragment;
 import com.acukanov.sibedge.utils.ActivityCommon;
 import com.acukanov.sibedge.utils.LogUtils;
 import com.acukanov.sibedge.utils.PermissionsUtils;
@@ -99,6 +100,8 @@ public class MainActivity extends BaseActivity implements IMainView {
                     mMainPresenter.navigationItemSelected(mFragment);
                     break;
                 case R.id.menu_drawer_service:
+                    mFragment = ServiceFragment.newInstance();
+                    mMainPresenter.navigationItemSelected(mFragment);
                     break;
                 case R.id.menu_drawer_map:
                     break;
