@@ -12,6 +12,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.acukanov.sibedge.R;
 import com.acukanov.sibedge.events.CoordinatesFetched;
@@ -45,6 +46,7 @@ public class GeoMapFragment extends BaseFragment implements IMapFragmentView, On
     private Activity mActivity;
     @Inject MapFragmentPresenter mMapPresenter;
     @InjectView(R.id.map_view) MapView mMapView;
+    @InjectView(R.id.text_coordinates) TextView mTextCoordinates;
     private GoogleMap mGoogleMap;
     private Intent mGpsTrackerIntent;
 
@@ -147,6 +149,7 @@ public class GeoMapFragment extends BaseFragment implements IMapFragmentView, On
                     .title("Current position")
                     .position(coordinates));
         }
+        mTextCoordinates.setText("Latitude: " + String.valueOf(event.getLat()) + "; " + "Longitude: " + String.valueOf(event.getLon()));
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
