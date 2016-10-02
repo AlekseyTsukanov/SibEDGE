@@ -76,6 +76,7 @@ public class ListFragment extends BaseFragment implements IListFragmentView {
         ((BaseActivity) mActivity).activityComponent().inject(this);
         mLayoutManager = new LinearLayoutManager(mActivity);
         setHasOptionsMenu(true);
+        setTitle(R.string.menu_drawer_list);
     }
 
     @Nullable

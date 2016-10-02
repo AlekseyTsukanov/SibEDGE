@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import com.acukanov.sibedge.R;
 import com.acukanov.sibedge.ui.main.MainActivity;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 3000;
 
     @Override
@@ -21,6 +21,6 @@ public class SplashScreen extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
         new Handler().postDelayed(() ->
-                MainActivity.startActivity(SplashScreen.this, null), SPLASH_TIME_OUT);
+                MainActivity.startActivity(SplashScreenActivity.this, null), SPLASH_TIME_OUT);
     }
 }

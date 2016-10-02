@@ -10,6 +10,8 @@
     <string name="menu_drawer_service">Service</string>
     <string name="menu_drawer_map">Map</string>
 
+    <string name="fragment_title_create">Create new Item</string>
+
     <string name="context_menu_edit">@string/edit</string>
     <string name="context_menu_delete">@string/delete</string>
 

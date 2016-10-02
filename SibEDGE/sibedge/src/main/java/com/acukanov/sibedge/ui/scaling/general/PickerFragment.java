@@ -13,6 +13,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 import android.widget.ImageButton;
 
 import com.acukanov.sibedge.R;
@@ -36,9 +38,10 @@ public class PickerFragment extends BaseFragment implements IPickerView, View.On
     private static final int REQUEST_CAMERA = 1;
     private Activity mActivity;
     @Inject PickerPresenter mPickerPresenter;
-    @InjectView(R.id.btn_open_gallery) ImageButton btnOpenGallery;
-    @InjectView(R.id.btn_open_camera) ImageButton btnOpenCamera;
+    @InjectView(R.id.btn_open_gallery) ImageButton mBtnOpenGallery;
+    @InjectView(R.id.btn_open_camera) ImageButton mBtnOpenCamera;
     private String mPhotoPath;
+    final Animation buttonClickAnimation = new AlphaAnimation(1F, 0.8F);
 
     public PickerFragment() {}
 
@@ -58,6 +61,7 @@ public class PickerFragment extends BaseFragment implements IPickerView, View.On
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((BaseActivity) mActivity).activityComponent().inject(this);
+        setTitle(R.string.menu_drawer_scaling);
     }
 
     @Nullable
@@ -66,7 +70,8 @@ public class PickerFragment extends BaseFragment implements IPickerView, View.On
         View rootView = inflater.inflate(R.layout.fragment_picker, container, false);
         ButterKnife.inject(this, rootView);
         mPickerPresenter.attachView(this);
-
+        mBtnOpenCamera.startAnimation(buttonClickAnimation);
+        mBtnOpenGallery.startAnimation(buttonClickAnimation);
         return rootView;
     }
 

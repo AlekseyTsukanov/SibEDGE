@@ -75,6 +75,7 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
+        setTitle(R.string.menu_drawer_service);
         mLayoutManager = new LinearLayoutManager(mActivity);
         mServiceLoader = new ServiceDataLoader(mActivity);
     }
@@ -147,7 +148,6 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
 
     @Override
     public Loader<ArrayList<ServiceData>> onCreateLoader(int id, Bundle args) {
-        mProgress.setVisibility(View.VISIBLE);
         LogUtils.error(LOG_TAG, "Loader created");
         return mServiceLoader;
     }
@@ -184,6 +184,7 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
 
     @Override
     public void onStartLoader() {
+        mProgress.setVisibility(View.VISIBLE);
         getLoaderManager().initLoader(LOADER_REMOTE_DATA, null, this);
     }
 

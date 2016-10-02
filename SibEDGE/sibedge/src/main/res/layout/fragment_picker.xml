@@ -5,17 +5,6 @@
     android:orientation="vertical">
 
     <ImageButton
-        android:id="@+id/btn_open_gallery"
-        android:background="@drawable/ic_photo_library_black_24dp"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="202dp"
-        />
-
-    <ImageButton
         android:id="@+id/btn_open_camera"
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -23,4 +12,13 @@
         android:layout_alignTop="@+id/btn_open_gallery"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="50dp" />
+
+    <ImageButton
+        android:id="@+id/btn_open_gallery"
+        android:background="@drawable/ic_photo_library_black_24dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="61dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
