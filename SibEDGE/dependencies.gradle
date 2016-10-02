@@ -1,6 +1,6 @@
 ext.versions = [
         compileVersion          : 24,
-        buildToolsVersion       : '24.0.2',
+        buildToolsVersion       : '24.0.3',
         minSdk                  : 19,
         targetSdk               : 24,
 
@@ -8,6 +8,8 @@ ext.versions = [
         versionName             : '1.0',
 
         supportLib              : '24.0.0',
+        googleMaps              : '9.6.1',
+        googleLocations         : '9.6.1',
         dagger                  : '2.2',
         jsr250                  : '1.0',
 
@@ -34,6 +36,8 @@ ext.versions = [
 ext.lib = [
         appCompatV7             : "com.android.support:appcompat-v7:$versions.supportLib",
         supportAnnotations      : "com.android.support:support-annotations:$versions.supportLib",
+        googleServicesMap       : "com.google.android.gms:play-services-maps:$versions.googleMaps",
+        googleServicesLocation  : "com.google.android.gms:play-services-location:$versions.googleLocations",
         dagger                  : "com.google.dagger:dagger:$versions.dagger",
         daggerCompiler          : "com.google.dagger:dagger-compiler:$versions.dagger",
         javaxAnnotations        : "javax.annotation:jsr250-api:$versions.jsr250",

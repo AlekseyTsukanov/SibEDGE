@@ -17,6 +17,7 @@ import android.view.View;
 import com.acukanov.sibedge.R;
 import com.acukanov.sibedge.ui.base.BaseActivity;
 import com.acukanov.sibedge.ui.list.general.ListFragment;
+import com.acukanov.sibedge.ui.map.GeoMapFragment;
 import com.acukanov.sibedge.ui.scaling.general.PickerFragment;
 import com.acukanov.sibedge.ui.service.ServiceFragment;
 import com.acukanov.sibedge.utils.ActivityCommon;
@@ -104,6 +105,8 @@ public class MainActivity extends BaseActivity implements IMainView {
                     mMainPresenter.navigationItemSelected(mFragment);
                     break;
                 case R.id.menu_drawer_map:
+                    mFragment = GeoMapFragment.newInstance();
+                    mMainPresenter.navigationItemSelected(mFragment);
                     break;
             }
             return true;

@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">SibEDGE</string>
     <string name="package_name">com.acukanov.sibedge</string>
-    <string name="external_file_path">Android/data/com.acukanov.sibedge.debug/files/Pictures</string>
 
     <string name="res_menu_drawer_open">Drawer opened</string>
     <string name="res_menu_drawer_close">Drawer closed</string>
@@ -39,7 +38,16 @@
     <string name="dialog_message_text_epmty">Can\'t create new item. Please, enter correct text</string>
     <string name="dialog_title_camera_permission_error">Error starting camera</string>
     <string name="dialog_message_camera_permission_forbidden">You have forbid camera permission</string>
-    <string name="dialog_message_internet_permission_error">Can\'t start fetching remote data. You need to grant internet permission</string>
+    <string name="dialog_message_internet_permission_error">
+        Can\'t start fetching remote data. You need to grant internet permission
+    </string>
+
+    <string name="dialog_title_location_permission">Error retrieving current location</string>
+    <string name="dialog_message_location_premission">
+        Please, accept location permissions to start retrieving coordinates
+    </string>
+    <string name="dialog_title_gps_disabled">GPS disabled</string>
+    <string name="dialog_message_gps">Please, enable GPS to continue fetch coordinates</string>
 
     <string name="text_menu_add">Add</string>
 

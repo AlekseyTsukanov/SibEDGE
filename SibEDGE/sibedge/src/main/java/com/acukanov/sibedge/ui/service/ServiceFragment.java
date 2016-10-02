@@ -129,7 +129,8 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
     @Override
     public Loader<ArrayList<ServiceData>> onCreateLoader(int id, Bundle args) {
         mProgress.setVisibility(View.VISIBLE);
-        return new ServiceDataLoader(mActivity);
+        LogUtils.error(LOG_TAG, "Loader created");
+        return mServiceLoader;
     }
 
     @Override
@@ -143,10 +144,12 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
             mServiceAdapter.notifyDataSetChanged();
         }
         mProgress.setVisibility(View.GONE);
+        LogUtils.error(LOG_TAG, "Loader finished");
     }
 
     @Override
     public void onLoaderReset(Loader<ArrayList<ServiceData>> loader) {
+        LogUtils.error(LOG_TAG, "Loader reseted");
         mProgress.setVisibility(View.GONE);
     }
 

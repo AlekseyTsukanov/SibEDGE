@@ -8,6 +8,8 @@ import com.acukanov.sibedge.SibEdgeApplication;
 import com.acukanov.sibedge.data.database.DatabaseHelper;
 import com.acukanov.sibedge.injection.annotations.ApplicationContext;
 import com.acukanov.sibedge.injection.modules.ApplicationModule;
+import com.acukanov.sibedge.service.GpsStateReceiver;
+import com.acukanov.sibedge.service.GpsTrackerService;
 
 import javax.inject.Singleton;
 
@@ -17,6 +19,8 @@ import dagger.Component;
 @Component(modules = {ApplicationModule.class})
 public interface ApplicationComponent {
     void inject(SibEdgeApplication sibEdgeApplication);
+    void inject(GpsStateReceiver gpsStateReceiver);
+    void inject(GpsTrackerService gpsTrackerService);
 
     @ApplicationContext
     Context context();
