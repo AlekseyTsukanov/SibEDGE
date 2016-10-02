@@ -21,11 +21,18 @@ import android.widget.ProgressBar;
 import com.acukanov.sibedge.R;
 import com.acukanov.sibedge.data.remote.ServiceDataLoader;
 import com.acukanov.sibedge.data.remote.model.ServiceData;
+import com.acukanov.sibedge.events.NetworkConnected;
+import com.acukanov.sibedge.events.NetworkDisconnected;
 import com.acukanov.sibedge.ui.base.BaseActivity;
 import com.acukanov.sibedge.ui.base.BaseFragment;
 import com.acukanov.sibedge.utils.DialogFactory;
 import com.acukanov.sibedge.utils.LogUtils;
+import com.acukanov.sibedge.utils.NetworkUtils;
 import com.acukanov.sibedge.utils.PermissionsUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 
@@ -65,6 +72,9 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((BaseActivity) mActivity).activityComponent().inject(this);
+        if (!EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().register(this);
+        }
         mLayoutManager = new LinearLayoutManager(mActivity);
         mServiceLoader = new ServiceDataLoader(mActivity);
     }
@@ -80,7 +90,11 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
         mServiceList.setHasFixedSize(true);
         mServiceList.setAdapter(mServiceAdapter);
         mSwipeContainer.setOnRefreshListener(() -> {
-            getLoaderManager().restartLoader(LOADER_REMOTE_DATA, null, this);
+            if (NetworkUtils.isNetworkAvailable(mActivity)) {
+                getLoaderManager().restartLoader(LOADER_REMOTE_DATA, null, this);
+            } else {
+                mServicePresenter.showError();
+            }
             mSwipeContainer.setRefreshing(false);
         });
 
@@ -98,13 +112,18 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
                     REQUEST_PERMISSION_INTERNET
             );
         } else {
-            mServicePresenter.startAsyncTaskLoader();
+            if (NetworkUtils.isNetworkAvailable(mActivity)) {
+                mServicePresenter.startAsyncTaskLoader();
+            } else {
+                mServicePresenter.showError();
+            }
         }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        EventBus.getDefault().unregister(this);
         mServicePresenter.detachView();
     }
 
@@ -153,8 +172,26 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
         mProgress.setVisibility(View.GONE);
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventMainThread(NetworkDisconnected event) {
+        mServicePresenter.showError();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventMainThread(NetworkConnected event) {
+        getLoaderManager().restartLoader(LOADER_REMOTE_DATA, null, this);
+    }
+
     @Override
     public void onStartLoader() {
         getLoaderManager().initLoader(LOADER_REMOTE_DATA, null, this);
+    }
+
+    @Override
+    public void onErrorStartingFetchData() {
+        DialogFactory.createSimpleOkErrorDialog(
+                mActivity,
+                R.string.dialog_title_internet_disabled,
+                R.string.dialog_message_internet).show();
     }
 }

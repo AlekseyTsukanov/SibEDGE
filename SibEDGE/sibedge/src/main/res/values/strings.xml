@@ -48,6 +48,8 @@
     </string>
     <string name="dialog_title_gps_disabled">GPS disabled</string>
     <string name="dialog_message_gps">Please, enable GPS to continue fetch coordinates</string>
+    <string name="dialog_title_internet_disabled">Internet connection disabled</string>
+    <string name="dialog_message_internet">Please, enable internet to continue fetch funny jokes</string>
 
     <string name="text_menu_add">Add</string>
 

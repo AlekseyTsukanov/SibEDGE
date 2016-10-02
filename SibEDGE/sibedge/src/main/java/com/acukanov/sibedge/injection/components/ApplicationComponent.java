@@ -10,6 +10,7 @@ import com.acukanov.sibedge.injection.annotations.ApplicationContext;
 import com.acukanov.sibedge.injection.modules.ApplicationModule;
 import com.acukanov.sibedge.service.GpsStateReceiver;
 import com.acukanov.sibedge.service.GpsTrackerService;
+import com.acukanov.sibedge.service.NetworkStateReceiver;
 
 import javax.inject.Singleton;
 
@@ -21,6 +22,7 @@ public interface ApplicationComponent {
     void inject(SibEdgeApplication sibEdgeApplication);
     void inject(GpsStateReceiver gpsStateReceiver);
     void inject(GpsTrackerService gpsTrackerService);
+    void inject(NetworkStateReceiver networkStateReceiver);
 
     @ApplicationContext
     Context context();

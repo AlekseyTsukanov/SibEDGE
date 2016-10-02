@@ -25,4 +25,8 @@ public class ServicePresenter implements IPresenter<IServiceView> {
     public void startAsyncTaskLoader() {
         mServiceView.onStartLoader();
     }
+
+    public void showError() {
+        mServiceView.onErrorStartingFetchData();
+    }
 }

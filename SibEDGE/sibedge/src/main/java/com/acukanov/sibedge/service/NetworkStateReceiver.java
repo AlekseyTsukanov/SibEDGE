@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import com.acukanov.sibedge.SibEdgeApplication;
 import com.acukanov.sibedge.events.NetworkConnected;
 import com.acukanov.sibedge.events.NetworkDisconnected;
 
@@ -16,9 +17,9 @@ public class NetworkStateReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        SibEdgeApplication.get(context).getApplicationComponent().inject(this);
         ConnectivityManager cm =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         if (activeNetwork != null) {
             boolean isConnected = activeNetwork.isConnectedOrConnecting();
