@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SibEDGE</string>
     <string name="package_name">com.acukanov.sibedge</string>
+    <string name="external_file_path">Android/data/com.acukanov.sibedge.debug/files/Pictures</string>
 
     <string name="res_menu_drawer_open">Drawer opened</string>
     <string name="res_menu_drawer_close">Drawer closed</string>
@@ -24,6 +25,8 @@
         sunt in culpa qui officia deserunt mollit anim id est laborum.
     </string>
     <string name="text_lorem_ipsum_short">Lorem ipsum</string>
+    <string name="text_permission_camera_forbided">You have forbid camera permission</string>
+    <string name="text_camera_permission_error">Error starting camera</string>
     <string name="text_hint_new_item">Enter new item text here</string>
 
     <string name="btn_save">Save</string>

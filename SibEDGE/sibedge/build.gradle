@@ -37,7 +37,7 @@ android {
         }
         debug {
             debuggable true
-            applicationIdSuffix ".debug"
+            //applicationIdSuffix ".debug"
             signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }

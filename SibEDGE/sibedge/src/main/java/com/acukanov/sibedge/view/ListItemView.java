@@ -1,4 +1,4 @@
-package com.acukanov.sibedge.ui.list.general;
+package com.acukanov.sibedge.view;
 
 
 import android.annotation.TargetApi;
