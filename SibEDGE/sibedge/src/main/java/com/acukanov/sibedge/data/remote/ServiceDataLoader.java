@@ -19,14 +19,15 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-public class ServiceDataLoader extends AsyncTaskLoader<ArrayList<ServiceData>> {
+public class ServiceDataLoader extends AsyncTaskLoader<List<ServiceData>> {
     private static final String LOG_TAG = LogUtils.makeLogTag(ServiceDataLoader.class);
-    private ArrayList<ServiceData> serviceData;
+    private List<ServiceData> serviceData;
 
     public ServiceDataLoader(Context context) {
         super(context);
@@ -40,7 +41,7 @@ public class ServiceDataLoader extends AsyncTaskLoader<ArrayList<ServiceData>> {
     }
 
     @Override
-    public ArrayList<ServiceData> loadInBackground() {
+    public List<ServiceData> loadInBackground() {
         try {
             URL url = new URL(BuildConfig.SERVER_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();

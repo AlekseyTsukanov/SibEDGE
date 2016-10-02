@@ -34,14 +34,14 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-public class ServiceFragment extends BaseFragment implements IServiceView, LoaderManager.LoaderCallbacks<ArrayList<ServiceData>> {
+public class ServiceFragment extends BaseFragment implements IServiceView, LoaderManager.LoaderCallbacks<List<ServiceData>> {
     private static final String LOG_TAG = LogUtils.makeLogTag(ServiceFragment.class);
     private static final int LOADER_REMOTE_DATA = 0;
     private static final int REQUEST_PERMISSION_INTERNET = 0;
@@ -147,13 +147,13 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
     }
 
     @Override
-    public Loader<ArrayList<ServiceData>> onCreateLoader(int id, Bundle args) {
+    public Loader<List<ServiceData>> onCreateLoader(int id, Bundle args) {
         LogUtils.error(LOG_TAG, "Loader created");
         return mServiceLoader;
     }
 
     @Override
-    public void onLoadFinished(Loader<ArrayList<ServiceData>> loader, ArrayList<ServiceData> data) {
+    public void onLoadFinished(Loader<List<ServiceData>> loader, List<ServiceData> data) {
         if (data != null && !data.isEmpty()) {
             for (int i = 0; i < data.size(); i++) {
                 LogUtils.debug(LOG_TAG, i + "   " + data.toString());
@@ -167,7 +167,7 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
     }
 
     @Override
-    public void onLoaderReset(Loader<ArrayList<ServiceData>> loader) {
+    public void onLoaderReset(Loader<List<ServiceData>> loader) {
         LogUtils.error(LOG_TAG, "Loader reseted");
         mProgress.setVisibility(View.GONE);
     }
