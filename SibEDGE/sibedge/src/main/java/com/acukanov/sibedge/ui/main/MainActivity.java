@@ -42,6 +42,8 @@ public class MainActivity extends BaseActivity implements IMainView {
     private static final String LOG_TAG = LogUtils.makeLogTag(MainActivity.class);
     public static final String INSTANCE_STATE_FRAGMENT_KEY = "instance_state_fragment_key";
     private static final int REQUEST_CODE_PERMISSIONS = 0;
+    private static final String EN_LOCALE = "en";
+    private static final String RU_LOCALE = "ru";
     @Inject MainPresenter mMainPresenter;
     @Inject LocalePreferenceManager mLocaleManager;
     @InjectView(R.id.toolbar) Toolbar mToolbar;
@@ -79,12 +81,12 @@ public class MainActivity extends BaseActivity implements IMainView {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_item_language:
-                if (mLocaleManager.getLocale().equals("en")) {
-                    setLocale("ru");
-                    mLocaleManager.setLocale("ru");
+                if (mLocaleManager.getLocale().equals(EN_LOCALE)) {
+                    setLocale(RU_LOCALE);
+                    mLocaleManager.setLocale(RU_LOCALE);
                 } else {
-                    setLocale("en");
-                    mLocaleManager.setLocale("en");
+                    setLocale(EN_LOCALE);
+                    mLocaleManager.setLocale(EN_LOCALE);
                 }
                 return true;
             default:
@@ -100,8 +102,8 @@ public class MainActivity extends BaseActivity implements IMainView {
         ButterKnife.inject(this);
         mMainPresenter.attachView(this);
         if (mLocaleManager.getLocale() == null) {
-            setLocale("en");
-            mLocaleManager.setLocale("en");
+            setLocale(EN_LOCALE);
+            mLocaleManager.setLocale(EN_LOCALE);
         }
 
         setSupportActionBar(mToolbar);

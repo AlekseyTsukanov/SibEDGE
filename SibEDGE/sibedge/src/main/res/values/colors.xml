@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#303f8e</color>
+    <color name="colorPrimary">#39a4e2</color>
     <color name="colorPrimaryDark">#1f2968</color>
     <color name="colorAccent">#cf383d</color>
 
-    <color name="rocket_white">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
 
-    <color name="toolbar_text_light">@color/rocket_white</color>
+    <color name="toolbar_text_light">@color/white</color>
 
-    <color name="window_background_light">@color/rocket_white</color>
+    <color name="window_background_light">@color/white</color>
 </resources>

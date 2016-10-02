@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="@string/text_user_name"
             android:textSize="@dimen/text_size"
-            android:textColor="@color/rocket_white"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:gravity="center"
             android:paddingBottom="4dp"
