@@ -33,7 +33,7 @@ public class DatabaseHelper {
             String query = "SELECT * FROM " + DatabaseTables.TABLE_ITEMS;
             Cursor cursor = mDb.query(query);
             while (cursor.moveToNext()) {
-                LogUtils.error(LOG_TAG, DatabaseTables.TableItems.parseCursor(cursor).toString());
+                LogUtils.debug(LOG_TAG, DatabaseTables.TableItems.parseCursor(cursor).toString());
                 item = (DatabaseTables.TableItems.parseCursor(cursor));
                 subscriber.onNext(item);
             }
@@ -46,11 +46,11 @@ public class DatabaseHelper {
         return Observable.create(subscriber -> {
             String query = "SELECT * FROM " + DatabaseTables.TABLE_ITEMS
                     + " WHERE " + DatabaseTables.TABLE_ITEMS + "." + DatabaseTables.TableItems.COLUMN_ID + " = " + id;
-            LogUtils.error(LOG_TAG, query);
+            LogUtils.debug(LOG_TAG, query);
             Cursor cursor = mDb.query(query);
             while (cursor.moveToNext()){
                 subscriber.onNext(DatabaseTables.TableItems.parseCursor(cursor));
-                LogUtils.error(LOG_TAG, DatabaseTables.TableItems.parseCursor(cursor).toString());
+                LogUtils.debug(LOG_TAG, DatabaseTables.TableItems.parseCursor(cursor).toString());
             }
             cursor.close();
             subscriber.unsubscribe();

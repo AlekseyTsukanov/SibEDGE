@@ -49,14 +49,14 @@ public class CreateItemFragmentPresenter implements IPresenter<ICreateFragmentVi
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(action -> {
-                    LogUtils.error(LOG_TAG, "onNext item saved");
+                    LogUtils.debug(LOG_TAG, "onNext item saved");
                     mCreateView.onNewItemSaved(activity);
                     mCreateView.hideProgress();
                 }, e -> {
                     LogUtils.error(LOG_TAG, "onError save");
                     mCreateView.onErrorSavingItem(activity);
                 }, () -> {
-                    LogUtils.error(LOG_TAG, "onComplete saving");
+                    LogUtils.debug(LOG_TAG, "onComplete saving");
                     mCreateView.hideProgress();
                 });
     }

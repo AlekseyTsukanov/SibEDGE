@@ -46,7 +46,7 @@ public class ListFragmentPresenter implements IPresenter<IListFragmentView> {
         ArrayList<Items> items = new ArrayList<>();
         mSubscription = mDatabaseHelper.findAllItems()
                 .subscribe(items1 -> {
-                    LogUtils.error(LOG_TAG, "onNext getItems");
+                    LogUtils.debug(LOG_TAG, "onNext getItems");
                     if (items1 != null) {
                         items.add(items1);
                     }
@@ -54,7 +54,7 @@ public class ListFragmentPresenter implements IPresenter<IListFragmentView> {
                     LogUtils.error(LOG_TAG, "onError getItems");
                     mListFragmentView.hideProgress();
                 }, () -> {
-                    LogUtils.error(LOG_TAG, "onComplete getItems");
+                    LogUtils.debug(LOG_TAG, "onComplete getItems");
                     mListFragmentView.hideProgress();
                     mListFragmentView.onItemsLoaded(items);
                 });
@@ -67,11 +67,11 @@ public class ListFragmentPresenter implements IPresenter<IListFragmentView> {
         mSubscription = mDatabaseHelper.updateItem(item)
                 .subscribeOn(Schedulers.io())
                 .subscribe(item1 -> {
-                    LogUtils.error(LOG_TAG, "onNext updateItem");
+                    LogUtils.debug(LOG_TAG, "onNext updateItem");
                 }, e -> {
                     LogUtils.error(LOG_TAG, "onError updateItem");
                 }, () -> {
-                    LogUtils.error(LOG_TAG, "onComplete updateItem");
+                    LogUtils.debug(LOG_TAG, "onComplete updateItem");
                 });
     }
 
@@ -85,11 +85,11 @@ public class ListFragmentPresenter implements IPresenter<IListFragmentView> {
         }
         mSubscription = mDatabaseHelper.deleteItem(item)
                 .subscribe(action -> {
-                    LogUtils.error(LOG_TAG, "onNext deleteItem");
+                    LogUtils.debug(LOG_TAG, "onNext deleteItem");
                 }, e -> {
                     LogUtils.error(LOG_TAG, "onError deleteItem");
                 }, () -> {
-                    LogUtils.error(LOG_TAG, "onComplete deleteItem");
+                    LogUtils.debug(LOG_TAG, "onComplete deleteItem");
                     mListFragmentView.onItemDeleted();
                 });
     }

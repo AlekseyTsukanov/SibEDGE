@@ -156,7 +156,7 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
     public void onLoadFinished(Loader<ArrayList<ServiceData>> loader, ArrayList<ServiceData> data) {
         if (data != null && !data.isEmpty()) {
             for (int i = 0; i < data.size(); i++) {
-                LogUtils.error(LOG_TAG, i + "   " + data.toString());
+                LogUtils.debug(LOG_TAG, i + "   " + data.toString());
             }
             mServiceAdapter.clearAdapter();
             mServiceAdapter.setServiceData(data);
