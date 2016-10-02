@@ -51,7 +51,6 @@ public class CreateItemFragment extends BaseFragment implements ICreateFragmentV
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((BaseActivity) mActivity).activityComponent().inject(this);
-        setTitle(R.string.fragment_title_create);
     }
 
     @Nullable
@@ -64,6 +63,12 @@ public class CreateItemFragment extends BaseFragment implements ICreateFragmentV
         mBtnDone.setOnClickListener(this);
         mBtnRevert.setOnClickListener(this);
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setTitle(R.string.fragment_title_create);
     }
 
     @Override

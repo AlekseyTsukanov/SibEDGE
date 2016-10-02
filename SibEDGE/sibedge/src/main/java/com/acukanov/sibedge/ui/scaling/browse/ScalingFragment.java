@@ -71,7 +71,6 @@ public class ScalingFragment extends BaseFragment implements IScalingView, View.
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((BaseActivity) mActivity).activityComponent().inject(this);
-        setTitle(R.string.menu_drawer_scaling);
         mImageUri = Uri.parse(getArguments().getString(BUNDLE_ARG_IMAGE_URI));
     }
 
@@ -86,6 +85,12 @@ public class ScalingFragment extends BaseFragment implements IScalingView, View.
         mZoomControls.setIsZoomOutEnabled(true);
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setTitle(R.string.menu_drawer_scaling);
     }
 
     @Override

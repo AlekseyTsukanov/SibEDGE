@@ -7,4 +7,5 @@ import com.acukanov.sibedge.ui.base.IView;
 
 public interface IMainView extends IView {
     void onNavigationItemSelected(Fragment fragment);
+    void onSetLocale();
 }

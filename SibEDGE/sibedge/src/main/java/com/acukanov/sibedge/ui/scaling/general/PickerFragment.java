@@ -61,7 +61,6 @@ public class PickerFragment extends BaseFragment implements IPickerView, View.On
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ((BaseActivity) mActivity).activityComponent().inject(this);
-        setTitle(R.string.menu_drawer_scaling);
     }
 
     @Nullable
@@ -73,6 +72,12 @@ public class PickerFragment extends BaseFragment implements IPickerView, View.On
         mBtnOpenCamera.startAnimation(buttonClickAnimation);
         mBtnOpenGallery.startAnimation(buttonClickAnimation);
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setTitle(R.string.menu_drawer_scaling);
     }
 
     @Override

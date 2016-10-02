@@ -9,6 +9,7 @@
     <string name="menu_drawer_scaling">Scaling</string>
     <string name="menu_drawer_service">Service</string>
     <string name="menu_drawer_map">Map</string>
+    <string name="text_menu_language">Выбрать язык</string>
 
     <string name="fragment_title_create">Create new Item</string>
 

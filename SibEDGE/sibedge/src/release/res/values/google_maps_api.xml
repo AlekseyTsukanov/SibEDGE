@@ -18,5 +18,8 @@
     -->
         <string name="google_maps_key"
             translatable="false"
-            templateMergeStrategy="preserve">AIzaSyBaZOA1ILMfkq9mWW1XOUCnJxqolG0vprk</string>
+            templateMergeStrategy="preserve">AIzaSyC9z_ALWFw-7lIbyEYD-tFU_s9S9637DeU</string>
+        <!--<string name="google_maps_key"
+            translatable="false"
+            templateMergeStrategy="preserve">AIzaSyC9z_ALWFw-7lIbyEYD-AIzaSyBaZOA1ILMfkq9mWW1XOUCnJxqolG0vprk</string>-->
 </resources>

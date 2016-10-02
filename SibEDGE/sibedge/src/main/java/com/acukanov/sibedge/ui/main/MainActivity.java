@@ -101,10 +101,6 @@ public class MainActivity extends BaseActivity implements IMainView {
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
         mMainPresenter.attachView(this);
-        if (mLocaleManager.getLocale() == null) {
-            setLocale(EN_LOCALE);
-            mLocaleManager.setLocale(EN_LOCALE);
-        }
 
         setSupportActionBar(mToolbar);
         ActivityCommon.setHomeAsUp(this);
@@ -177,6 +173,7 @@ public class MainActivity extends BaseActivity implements IMainView {
     @Override
     protected void onResume() {
         super.onResume();
+        mMainPresenter.setLocale();
         if (!PermissionsUtils.hasPermission(this, Manifest.permission.INTERNET)
                 || !PermissionsUtils.hasPermission(this, Manifest.permission.ACCESS_NETWORK_STATE)
                 || !PermissionsUtils.hasPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -214,6 +211,14 @@ public class MainActivity extends BaseActivity implements IMainView {
             mFragmentManager.beginTransaction()
                     .replace(R.id.main_content, fragment)
                     .commit();
+        }
+    }
+
+    @Override
+    public void onSetLocale() {
+        if (mLocaleManager.getLocale() == null) {
+            setLocale(EN_LOCALE);
+            mLocaleManager.setLocale(EN_LOCALE);
         }
     }
 

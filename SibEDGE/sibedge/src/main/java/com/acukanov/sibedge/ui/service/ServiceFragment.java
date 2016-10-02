@@ -75,7 +75,6 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
-        setTitle(R.string.menu_drawer_service);
         mLayoutManager = new LinearLayoutManager(mActivity);
         mServiceLoader = new ServiceDataLoader(mActivity);
     }
@@ -105,6 +104,7 @@ public class ServiceFragment extends BaseFragment implements IServiceView, Loade
     @Override
     public void onResume() {
         super.onResume();
+        setTitle(R.string.menu_drawer_service);
         if (!PermissionsUtils.hasPermission(mActivity, Manifest.permission.INTERNET)) {
             PermissionsUtils.requestPermissionsSafely(
                     mActivity,

@@ -69,7 +69,6 @@ public class GeoMapFragment extends BaseFragment implements IMapFragmentView, On
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
-        setTitle(R.string.menu_drawer_map);
     }
 
     @Nullable
@@ -97,6 +96,7 @@ public class GeoMapFragment extends BaseFragment implements IMapFragmentView, On
         } else {
             mMapPresenter.initializeMap();
         }
+        setTitle(R.string.menu_drawer_map);
     }
 
     @Override

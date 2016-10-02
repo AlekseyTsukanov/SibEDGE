@@ -76,7 +76,6 @@ public class ListFragment extends BaseFragment implements IListFragmentView {
         ((BaseActivity) mActivity).activityComponent().inject(this);
         mLayoutManager = new LinearLayoutManager(mActivity);
         setHasOptionsMenu(true);
-        setTitle(R.string.menu_drawer_list);
     }
 
     @Nullable
@@ -92,6 +91,12 @@ public class ListFragment extends BaseFragment implements IListFragmentView {
 
         mListFragmentPresenter.getItems();
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setTitle(R.string.menu_drawer_list);
     }
 
     @Override
